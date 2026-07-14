@@ -41,7 +41,7 @@ def send_telegram(deal):
 
 <blockquote>💰 <b>Price:</b> ₹{deal.get("currentPrice", "N/A")}</blockquote>
 
-<blockquote>📉 <b>Lowest in 6 Months:</b> ₹{deal.get("lowestPrice6Months", "N/A")}</blockquote>
+<blockquote>📉 <b>Lowest in 6 Months:</b> ₹{deal.get("stats", {}).get("lowestPrice6Months", "N/A")}</blockquote>
 
 <blockquote>🏷 <b>Discount:</b> {deal.get("stats", {}).get("discountPercent", 0)}%</blockquote>
 
