@@ -1,4 +1,4 @@
-name: Deal Radar
+Name: Deal Radar
 
 on:
   schedule:
@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # <-- Added for history
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -53,4 +55,5 @@ jobs:
           fi
 
           git commit -m "Update deal state"
-          git push
+          git push origin HEAD:main # <-- Specifying the branch fixes cron issues
+          
